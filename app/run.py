@@ -1,4 +1,5 @@
 import json
+import pickle
 import plotly
 import pandas as pd
 
@@ -30,7 +31,7 @@ engine = create_engine('sqlite:///data/DisasterResponse.db')
 df = pd.read_sql_table('DisasterMessage', engine)
 
 # load model
-model = joblib.load("models/classifier.pkl")
+model = pickle.load(open('models/classifier.pkl', 'rb'))
 
 
 # index webpage displays cool visuals and receives user input text for model
@@ -42,7 +43,14 @@ def index():
     # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
-    
+    pie_values = []
+    pie_labels = []
+    for col in df.columns.values[4:]:
+       pie_labels.append(col)
+       pie_values.append(len(df.loc[df[col] == '1'])/len(df)*100)
+
+
+
     # create visuals
     # TODO: Below is an example - modify to create your own visuals
     graphs = [
@@ -62,6 +70,16 @@ def index():
                 'xaxis': {
                     'title': "Genre"
                 }
+            }
+        },
+        {
+            'data': [{
+                'labels': pie_labels,
+                'values': pie_values,
+                'type': 'pie'
+            }],
+            'layout': {
+                'title': 'Distribution of all genres across total'
             }
         }
     ]
