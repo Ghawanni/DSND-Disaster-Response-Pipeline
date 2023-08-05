@@ -36,9 +36,133 @@ Once you have installed the necessary packages, you can run the project by follo
       `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 
 2. Run the following command in the app's directory to run your web app.
-   `python run.py`
+   `python app/run.py`
 
 3. Go to http://0.0.0.0:3001/
 
+<details>
+<summary>Results (for each category)</summary>
+<p>
 
-This will run the project and save the model to a file.
+Category: SHOPS
+
+               precision    recall  f1-score   support
+
+           0       1.00      1.00      1.00      5260
+           1       0.00      0.00      0.00        18
+
+    accuracy                           1.00      5278
+macro avg       0.50      0.50      0.50      5278
+weighted avg       0.99      1.00      0.99      5278
+
+Category: AID_CENTERS
+
+               precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99      5216
+           1       0.00      0.00      0.00        62
+
+    accuracy                           0.99      5278
+macro avg       0.49      0.50      0.50      5278
+weighted avg       0.98      0.99      0.98      5278
+
+Category: OTHER_INFRASTRUCTURE
+
+               precision    recall  f1-score   support
+
+           0       0.96      1.00      0.98      5059
+           1       0.17      0.00      0.01       219
+
+    accuracy                           0.96      5278
+macro avg       0.56      0.50      0.49      5278
+weighted avg       0.93      0.96      0.94      5278
+
+Category: WEATHER_RELATED
+
+               precision    recall  f1-score   support
+
+           0       0.87      0.96      0.92      3814
+           1       0.87      0.63      0.73      1464
+
+    accuracy                           0.87      5278
+macro avg       0.87      0.80      0.82      5278
+weighted avg       0.87      0.87      0.86      5278
+
+Category: FLOODS
+
+               precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97      4850
+           1       0.88      0.38      0.53       428
+
+    accuracy                           0.95      5278
+macro avg       0.91      0.69      0.75      5278
+weighted avg       0.94      0.95      0.94      5278
+
+Category: STORM
+
+               precision    recall  f1-score   support
+
+           0       0.95      0.98      0.97      4812
+           1       0.76      0.50      0.60       466
+
+    accuracy                           0.94      5278
+macro avg       0.86      0.74      0.79      5278
+weighted avg       0.94      0.94      0.94      5278
+
+Category: FIRE
+
+               precision    recall  f1-score   support
+
+           0       0.99      1.00      0.99      5219
+           1       1.00      0.02      0.03        59
+
+    accuracy                           0.99      5278
+macro avg       0.99      0.51      0.51      5278
+weighted avg       0.99      0.99      0.98      5278
+
+Category: EARTHQUAKE
+
+               precision    recall  f1-score   support
+
+           0       0.97      0.99      0.98      4771
+           1       0.91      0.74      0.81       507
+
+    accuracy                           0.97      5278
+macro avg       0.94      0.87      0.90      5278
+weighted avg       0.97      0.97      0.97      5278
+
+Category: COLD
+
+               precision    recall  f1-score   support
+
+           0       0.98      1.00      0.99      5169
+           1       0.80      0.07      0.13       109
+
+    accuracy                           0.98      5278
+macro avg       0.89      0.54      0.56      5278
+weighted avg       0.98      0.98      0.97      5278
+
+Category: OTHER_WEATHER
+
+               precision    recall  f1-score   support
+
+           0       0.95      1.00      0.97      5005
+           1       0.67      0.02      0.04       273
+
+    accuracy                           0.95      5278
+macro avg       0.81      0.51      0.51      5278
+weighted avg       0.93      0.95      0.93      5278
+
+Category: DIRECT_REPORT
+
+               precision    recall  f1-score   support
+
+           0       0.88      0.98      0.93      4323
+           1       0.80      0.38      0.52       955
+
+    accuracy                           0.87      5278
+macro avg       0.84      0.68      0.72      5278
+weighted avg       0.86      0.87      0.85      5278
+</p>
+</details>
