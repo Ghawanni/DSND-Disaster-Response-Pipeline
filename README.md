@@ -2,6 +2,9 @@
 
 This repository contains the code for a project that performs ETL operations on disaster recovery messages from appen.com and creates a randomforestclassifier model to be able to predict the category of the input message from 36 different categories.
 
+Ultimately, this machine learning application can help corporations to improve their disaster response capabilities. By identifying and prioritizing urgent messages, categorizing messages for efficient routing, and extracting information from messages, corporations can better understand the situation and respond more effectively.
+one of the biggest issues that these coporates face is **noise-to-signal ratio** which can be significantly improved by having as a pipeline to respond quickly to relevant messages.
+
 ### Overview
 
 The project is divided into the following steps:
@@ -39,6 +42,27 @@ Once you have installed the necessary packages, you can run the project by follo
    `python app/run.py`
 
 3. Go to http://0.0.0.0:3001/
+
+
+### Project Structure
+```bash
+├── README.md # This readme file
+├── app # Flask Web Application Application directory
+│   ├── run.py # Flask application run script, this is where the webapp loads the data & model and serves HTTP requests
+│   └── templates # Directory containing HTML (handlebars) templates for rendering
+│       ├── go.html # HTML component template that gets rendered when a query is submitted for classification
+│       └── master.html # Main HTML template
+├── data # Data wrangling module directory 
+│   ├── DisasterResponse.db # (after running) SQLite DB containing cleaned data
+│   ├── disaster_categories.csv # Raw comma-separated category data from Appen.com
+│   ├── disaster_messages.csv # Raw comma-separated message data from Appen.com
+│   └── process_data.py # Python script responsible for extracting messages,transforming, cleaning for training, and loading to SQLite DB 
+├── models # Directory containing the training and model evaluation scripts
+│   ├── classifier.pkl # (after running) Pickle file containing the classification model
+│   └── train_classifier.py # Pythong script responsible for loading the data from SQLite DB, building, training, evaluating, adn saving the model
+├── notebook.ipynb # Data science notebook used for data exploration and development
+└── requirements.txt # Dependencies for the project to run
+```
 
 <details>
 <summary>Results (for each category)</summary>

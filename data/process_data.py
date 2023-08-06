@@ -36,10 +36,11 @@ def clean_data(df):
     df = df.drop(labels=['categories'], axis='columns')
 
     # check all columns and for any column with non-binary value, make the value 1
+    # also change dtype to numeric
     for col in df.columns.values[4:]:
-        print(df[col].value_counts())
-    if len(df[col].value_counts()) > 2:
-        df.loc[(df[col] != '1') & (df[col] != '0'), [col] ]= '1'
+        df[col] = pd.to_numeric(df[col])
+        if len(df[col].value_counts()) > 2:
+            df.loc[(df[col] != 1) & (df[col] != 0), [col]] = 1
 
     return df
 
