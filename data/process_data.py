@@ -34,6 +34,13 @@ def clean_data(df):
     df['categories'] = df['categories'].apply(lambda x: dict(s.split('-') for s in x))
     df = pd.concat([df, pd.json_normalize(df['categories'])], axis='columns')
     df = df.drop(labels=['categories'], axis='columns')
+
+    # check all columns and for any column with non-binary value, make the value 1
+    for col in df.columns.values[4:]:
+        print(df[col].value_counts())
+    if len(df[col].value_counts()) > 2:
+        df.loc[(df[col] != '1') & (df[col] != '0'), [col] ]= '1'
+
     return df
 
 
